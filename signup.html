@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-
+    J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="signup.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<title>Sign Up Page</title>
+</head>
+<body>
+    <!-- Nav Bar Starts Here -->
+    <nav class="navbar navbar-expand-lg navbar-dark justify-content-center" style="background-color: #33066d;" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html"><i style='font-size:15px' class='fas'>&#xf965;</i> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">News <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Contact <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+              </li>
+          </ul>
+          
+          
+        </div>
+      </nav>
+      <!-- Nav Bar Ends Here --> 
+      <form  method="get" action="" id="my-form" onsubmit=validatemobile()>
+        <h3 class="font-weight-bold">Sign Up here...</h3>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputFirstName4">First Name :</label>&nbsp;<label class="mandatory">*</label>
+            <input type="text" class="form-control" id="inputFirstName4" placeholder="First Name" required autofocus>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLastNmae4">Last Name :</label>
+            <input type="text" class="form-control" id="inputLastName4" placeholder="Last Name">
+          </div>
+        </div>
+        <label for="birthday">Date Of Birth :</label>&nbsp;<label class="mandatory">*</label>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+        <input type="date" id="birthday" name="birthday" placeholder="Date of Birth" required min='1900-01-01'>
+        </div></div>
+       <label>Select Gender :</label>&nbsp;<label class="mandatory">*</label></br>
+
+  <label><input type="radio" name="gender" value="male" required >Male</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+  <label><input type="radio" name="gender" value="female">Female</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+  <label><input type="radio" name="gender" value="other">Other</label>
+
+  
+         <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail">Email :</label>&nbsp;<label class="mandatory">*</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" required  onmouseup="myfunctionemail()">
+            <p id="erroremail"></p>
+          </div>
+          </div>
+         <div class="form-row">
+        <div class="form-group col-md-12">
+           <label for="inputPassword4">Password :</label>&nbsp;<label class="mandatory">*</label>
+           <div class="popup" onclick="myFunction()">Click here
+            <span class="popuptext" id="myPopup">Your password must contain 8 to 15 characters which includes at least one lowercase letter(a-z), one uppercase letter(A-Z), one numeric digit(0-9), and one special character(/.,;'[]{}:")!</span>
+          </div>
+          
+         <!-- <input type="password" class="form-control" id="inputPassword4" placeholder="Password" required> -->
+          <div class="input-group">
+            <input onclick="showbar()" type="password" class="form-control pwd" id="password" placeholder="Password" required  onmouseup="myfunctionpassword()">
+            <span class="input-group-btn">
+              <button  class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+              
+              </span>   
+          </div>
+          <div id="bar">
+          <meter max="4" id="password-strength"></meter>
+        <p id="password-strength-text"></p></div>
+        <p id="errorpassword"></p>
+           </div>
+      </div> 
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputconfirmPassword4">Re-Type Password :</label>&nbsp;<label class="mandatory">*</label>
+          <!--<input type="password" class="form-control" id="inputconfirmPassword4" placeholder="Re-Type Password" required> -->
+          <div class="input-group">
+            <input type="password" class="form-control pwd" id="confirmpassword" placeholder="Re-Type Password" required  onmouseup="myfunctionconfirmpassword()">
+            <span class="input-group-btn">
+              <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+            </span>          
+          </div>
+          <p id="errorconfirmpassword"></p>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="mobile">Mobile :</label>&nbsp;<label class="mandatory">*</label>
+          <input type="text" class="form-control" id="mobile" placeholder="Mobile" required  onmouseup="myfunctionmobile()">
+          <p id="errormobile"></p>
+        </div>
+      </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City :</label>
+            <input type="text" class="form-control" id="inputCity" placeholder="City">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputState">State :</label>&nbsp;<label class="mandatory">*</label>
+            <select id="inputState" class="form-control" required>
+              <option value="">Choose...</option>
+              <option value="andhrapradesh">Andhra Pradesh</option>
+              <option value="arunachalpradesh">Arunachal Pradesh</option>
+              <option value="assam">Assam</option>
+              <option value="bihar">Bihar</option>
+              <option value="chattisgarh">Chattisgarh</option>
+              <option value="goa">Goa</option>
+              <option value="gujarat">Gujarat</option>
+              <option value="haryana">Haryana</option>
+              <option value="himachalpradesh">Himachal Pradesh</option>
+              <option value="jharkhand">Jharkhand</option>
+              <option value="karnataka">Karnataka</option>
+              <option value="kerala">Kerala</option>
+              <option value="madhyapradesh">Madhya pradesh</option>
+              <option value="maharashtra">Maharashtra</option>
+              <option value="manipur">Manipur</option>
+              <option value="meghalaya">Meghalaya</option>
+              <option value="mizoram">Mizoram</option>
+              <option value="nagaland">Nagaland</option>
+              <option value="odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="rajasthan">Rajasthan</option>
+              <option value="sikkim">Sikkim</option>
+              <option value="tamilnadu">Tamil Nadu</option>
+              <option value="telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="uttarpradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="westbealng">West bengal</option>
+              <option value="andaman&nicobar">Andaman & Nicobar(UT)</option>
+              <option value="chandigarh">Chandigarh(UT)</option>
+              <option value="dn&dd">Dadra & Ngar Haveli and Daman &Diu(UT)</option>
+              <option value="delhi">Delhi(UT)</option>
+              <option value="jammu&kashmir">Jammu & Kashmir(UT)</option>
+              <option value="ladakh">Ladakh(UT)</option>
+              <option value="lakshadweep">Lakshadweep(UT)</option>
+              <option value="puducherry">Puducherry(UT)</option>
+            </select>
+          </div>
+          
+        </div>
+        
+        <button   class="btn btn-primary">Sign in</button>
+      </form>
+      <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+        </script>
+         <script type="text/javascript">
+         var password = document.getElementById('password');
+          var meter = document.getElementById('password-strength');
+          var text = document.getElementById('password-strength-text');
+         
+          var strength = {
+            0: "Weakest",
+            1: "Weak",
+            2: "OK",
+            3: "Good",
+            4: "Strong"
+          }
+           
+          
+
+          password.addEventListener('input', function() {
+              var val = password.value;
+              
+              var result = zxcvbn(val);
+
+              // This updates the password strength meter
+              meter.value = result.score;
+
+              // This updates the password meter text
+              if (val !== "") {
+                  text.innerHTML = "Password Strength: " + strength[result.score]; 
+              } else {
+                  text.innerHTML = "";
+              }
+          });
+      </script>
+
+
+
+
+
+     <!-- Footer Starts here -->
+<div class="footer">
+    <h4 class="font-weight-bold">Follow Us</h4>
+    <button class="text-white border-primary bg-primary rounded-left">Twitter</button><button class="text-white facebook">Facebook</button><button class="text-white rounded-right border-danger  bg-danger">Google+</button>
+    </div>
+    <!-- Footer Ends here -->
+    <script src="signup.js"></script>
+</body>
+</html>
