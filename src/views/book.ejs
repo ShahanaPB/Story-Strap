@@ -7,10 +7,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Book</title>
 </head>
 <body>
@@ -43,10 +44,10 @@
           </ul>
           <ul class="float-right navbar-nav  mt-2 mt-lg-0">
               <li class="nav-item active ">
-                <a class="nav-link" href="login.html"><i style='font-size:15px' class='fas'>&#xf007;</i>  Login <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="login"><i style='font-size:15px' class='fas'>&#xf007;</i>  Login <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active ">
-                <a class="nav-link" href="signup.html"><i style='font-size:15px' class='fas'>&#xf234;</i>  Sign Up <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="signup"><i style='font-size:15px' class='fas'>&#xf234;</i>  Sign Up <span class="sr-only">(current)</span></a>
               </li>
               </ul>
           
@@ -75,9 +76,15 @@
             <div class="row bg-light">    
                 <br>
                 <div class="col-md-2 col-sm-3 text-center ">
-                  <a class="story-title" href="#"><img alt="" src="/images/<%=book.img%>" style="width:100px;height:100px" class="img-circle"></a>
+                  <a class="story-title" href="#"><img alt="" src="/images/<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
                 </div>
                 <div class="col-md-10 col-sm-9">
+                  <form method="GET" action="/update/edit/<%=book._id%>">
+                    <button type="submit"   class="float-right">  <i style='font-size:28px' class='fas float-right'>&#xf044;</i> </button>                  
+                  </form>
+                  <form method="GET" action="/addbook/delete/<%=book._id%>">
+                    <button type="submit"   class="float-right">   <i style="font-size:28px" class="fa float-right">&#xf014;</i> </button>
+                  </form>
                   <h3><%=book.title%></h3>
                   <div class="row">
                     <div class="col-xs-9">
@@ -106,7 +113,11 @@
 <button class="text-white border-primary bg-primary rounded-left">Twitter</button><button class="text-white facebook">Facebook</button><button class="text-white rounded-right border-danger  bg-danger">Google+</button>
 </div>
 <!-- Footer Ends here -->
-      <script src="js/index.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+      <script src="/js/index.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+                                <!-- <button type="submit"   class="float-right">   <i style="font-size:28px" class="fa float-right">&#xf014;</i> </button>                  <button type="submit" class="float-right"> <i style='font-size:28px' class='fas float-right'>&#xf044;</i></button> -->

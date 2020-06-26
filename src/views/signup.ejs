@@ -16,7 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/public/css/signup.css">
+    <link rel="stylesheet" href="/css/signup.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html"><i style='font-size:15px' class='fas'>&#xf965;</i> Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="./index"><i style='font-size:15px' class='fas'>&#xf965;</i> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">News <span class="sr-only">(current)</span></a>
@@ -53,36 +53,36 @@
         </div>
       </nav>
       <!-- Nav Bar Ends Here --> 
-      <form  method="get" action="" id="my-form" onsubmit=validatemobile()>
+      <form  method="POST" action="/signup/add" id="my-form" onsubmit=validatemobile()>
         <h3 class="font-weight-bold">Sign Up here...</h3>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputFirstName4">First Name :</label>&nbsp;<label class="mandatory">*</label>
-            <input type="text" class="form-control" id="inputFirstName4" placeholder="First Name" required autofocus>
+            <input type="text" class="form-control" id="inputFirstName4" placeholder="First Name" name="firstname"required autofocus>
           </div>
           <div class="form-group col-md-6">
             <label for="inputLastNmae4">Last Name :</label>
-            <input type="text" class="form-control" id="inputLastName4" placeholder="Last Name">
+            <input type="text" class="form-control" id="inputLastName4" name="lastname" placeholder="Last Name">
           </div>
         </div>
         <label for="birthday">Date Of Birth :</label>&nbsp;<label class="mandatory">*</label>
         <div class="form-row">
           <div class="form-group col-md-12">
-        <input type="date" id="birthday" name="birthday" placeholder="Date of Birth" required min='1900-01-01'>
+        <input type="date" id="birthday" name="birthday" placeholder="Date of Birth" name="dob"required min='1900-01-01'>
         </div></div>
        <label>Select Gender :</label>&nbsp;<label class="mandatory">*</label></br>
 
-  <label><input type="radio" name="gender" value="male" required >Male</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+  <label><input type="radio" name="gender" value="male" required name="male">Male</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
-  <label><input type="radio" name="gender" value="female">Female</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+  <label><input type="radio" name="gender" value="female" name="female">Female</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
-  <label><input type="radio" name="gender" value="other">Other</label>
+  <label><input type="radio" name="gender" value="other" name="other">Other</label>
 
   
          <div class="form-row">
           <div class="form-group col-md-12">
             <label for="inputEmail">Email :</label>&nbsp;<label class="mandatory">*</label>
-            <input type="email" class="form-control" id="email" placeholder="Email" required  onmouseup="myfunctionemail()">
+            <input type="email" class="form-control" id="email" placeholder="Email"name="email" required  onmouseup="myfunctionemail()">
             <p id="erroremail"></p>
           </div>
           </div>
@@ -95,7 +95,7 @@
           
          <!-- <input type="password" class="form-control" id="inputPassword4" placeholder="Password" required> -->
           <div class="input-group">
-            <input onclick="showbar()" type="password" class="form-control pwd" id="password" placeholder="Password" required  onmouseup="myfunctionpassword()">
+            <input onclick="showbar()" type="password" class="form-control pwd" id="password" name="password" placeholder="Password" required  onmouseup="myfunctionpassword()">
             <span class="input-group-btn">
               <button  class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
               
@@ -123,18 +123,18 @@
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="mobile">Mobile :</label>&nbsp;<label class="mandatory">*</label>
-          <input type="text" class="form-control" id="mobile" placeholder="Mobile" required  onmouseup="myfunctionmobile()">
+          <input type="text" class="form-control" id="mobile" placeholder="Mobile" required name="mobile" onmouseup="myfunctionmobile()">
           <p id="errormobile"></p>
         </div>
       </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputCity">City :</label>
-            <input type="text" class="form-control" id="inputCity" placeholder="City">
+            <input type="text" class="form-control" id="inputCity" name="city" placeholder="City">
           </div>
           <div class="form-group col-md-6">
             <label for="inputState">State :</label>&nbsp;<label class="mandatory">*</label>
-            <select id="inputState" class="form-control" required>
+            <select id="inputState" class="form-control" name="state" required>
               <option value="">Choose...</option>
               <option value="andhrapradesh">Andhra Pradesh</option>
               <option value="arunachalpradesh">Arunachal Pradesh</option>
@@ -228,6 +228,6 @@
     <button class="text-white border-primary bg-primary rounded-left">Twitter</button><button class="text-white facebook">Facebook</button><button class="text-white rounded-right border-danger  bg-danger">Google+</button>
     </div>
     <!-- Footer Ends here -->
-    <script src="/public/js/signup.js"></script>
+    <script src="/js/signup.js"></script>
 </body>
 </html>
